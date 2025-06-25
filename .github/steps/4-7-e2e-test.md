@@ -26,9 +26,11 @@ Let's add end-to-end tests for the delete functionality.
 ### Success Criteria
 
 To complete this exercise successfully:
+
 - The codebase should have more tests added to handleDelete function in `packages/frontend/e2e/delete.spec.js` that runs successfully.
 
 If you encounter any issues, you can:
+
 - Ask Copilot to fix specific problems
 - Check the developer console for any errors
 - Remove the 5-day age restriction from delete functionality to make the tests simpler

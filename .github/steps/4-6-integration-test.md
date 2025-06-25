@@ -12,7 +12,7 @@ Let's add integration tests for the delete functionality.
    - For example, you might say: _"Add integration tests for delete item functionality. Setup mock data for the tests"_.
    - The exact wording is up to you—just make sure your intent is clear!
 
-1. Copilot will analyze your codebase and add required tests in packages/frontend/src/__tests__/App.test.js.
+1. Copilot will analyze your codebase and add required tests in packages/frontend/src/**tests**/App.test.js.
 
 1. When Copilot finishes making the changes, review what was modified:
    - In the frontend (`packages/frontend/src/__tests__/App.test.js`), you should see comprehensive tests added for handleDelete function
@@ -26,9 +26,11 @@ Let's add integration tests for the delete functionality.
 ### Success Criteria
 
 To complete this exercise successfully:
+
 - The codebase should have more tests added to handleDelete function in `packages/frontend/src/__tests__/App.test.js` that runs successfully.
 
 If you encounter any issues, you can:
+
 - Ask Copilot to fix specific problems
 - Check the developer console for any errors
-- Remove the 5-day restriction 
+- Remove the 5-day restriction

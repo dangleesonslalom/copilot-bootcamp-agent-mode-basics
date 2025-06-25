@@ -10,9 +10,7 @@ In this step, you'll use GitHub Copilot's Agent mode to convert part of the code
    3. `packages/backend/src/controllers/ItemDetailsController.js`
 
 3. :pencil2: Enter a prompt to get GitHub Copilot to refactor the above referenced code to use TypeScript: :pencil2:
-   
 4. :mag: Run the application with `npm run start` in the root directory to test the functionality.
-
    - All functionality should continue to work
    - All unit tests `npm run test` should continue to work
 
@@ -25,10 +23,12 @@ In this step, you'll use GitHub Copilot's Agent mode to convert part of the code
 ### Success Criteria
 
 To complete this exercise successfully, ensure that:
-   - Code changes are commited to the `feature/code-refactoring` branch.
-   - The specified files are convert to TypeScript files now.
-   - The remaining files are **not** converted to TypeScript for now.
+
+- Code changes are commited to the `feature/code-refactoring` branch.
+- The specified files are convert to TypeScript files now.
+- The remaining files are **not** converted to TypeScript for now.
 
 If you encounter any issues, you can:
+
 - Double check that the pushed branch is called `feature/code-refactoring`
 - Ask Copilot to fix specific problems

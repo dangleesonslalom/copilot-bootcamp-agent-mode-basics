@@ -5,6 +5,7 @@ In this exercise, you'll use GitHub Copilot's Agent mode to implement functional
 ### What is GitHub Copilot Agent Mode?
 
 **Agent mode** enhances Copilot by providing it a feedback loop, allowing it to:
+
 - Inspect its own results for issues, bugs, and inconsistencies
 - Automatically revise its work based on what it discovers
 - Handle more complex, multi-step tasks like implementing features across multiple files
@@ -39,11 +40,13 @@ Let's add the ability to delete items from our application. This will require ch
 ### Success Criteria
 
 To complete this exercise successfully:
+
 - The backend should have a DELETE endpoint at `/api/items/:id`
 - The frontend should display a delete button next to each item
 - Clicking a delete button should remove the item from both the UI and the database
 
 If you encounter any issues, you can:
+
 - Ask Copilot to fix specific problems
 - Check the developer console for any errors
 - Verify that the DELETE endpoint is properly implemented in the backend

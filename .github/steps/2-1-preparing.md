@@ -5,6 +5,7 @@ Welcome to the Copilot Bootcamp! In this first step, you'll set up your developm
 ### What is GitHub Codespaces?
 
 **GitHub Codespaces** is a cloud development environment that allows you to:
+
 - Code directly in your browser without any local setup
 - Access a fully configured Visual Studio Code environment
 - Run and test your applications in the cloud
@@ -19,7 +20,6 @@ Having a consistent development environment ensures all bootcamp participants ha
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/{{full_repo_name}}?quickstart=1)
 
 1. Confirm the **Repository** field is your copy of the exercise, not the original, then click the green **Create Codespace** button.
-
    - ✅ Your copy: `/{{{full_repo_name}}}`
    - ❌ Original: `/ilan-klinghofer/copilot-bootcamp-starter`
 
@@ -80,9 +80,11 @@ Now, let's use GitHub Copilot's Agent Mode to change the application title:
 ### Success Criteria
 
 To complete this exercise successfully, ensure that:
-   - A new `feature/intro` branch is pushed
+
+- A new `feature/intro` branch is pushed
 
 If you encounter any issues, you can:
+
 - Double check that the newly pushed branch is called `feature/intro`
 - Ask Copilot to fix specific problems
 

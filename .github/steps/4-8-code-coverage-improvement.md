@@ -27,10 +27,12 @@ Let's add more unit tests for our codebase.
 ### Success Criteria
 
 To complete this exercise successfully:
+
 - The codebase should have unit tests that runs successfully.
 - The backend code coverage should be above 80%
 - The frontend code coverage should be above 80%
 
 If you encounter any issues, you can:
+
 - Ask Copilot to fix specific problems
 - Check the developer console for any errors

@@ -41,6 +41,7 @@ Organize imports in the following order, with a blank line between each group:
 4. CSS/SCSS and other assets
 
 Example:
+
 ```javascript
 // External dependencies
 import React, { useState, useEffect } from 'react';
@@ -71,6 +72,7 @@ For React components, follow this organization:
 5. Export statement
 
 Example:
+
 ```javascript
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
@@ -82,15 +84,15 @@ import './Button.css';
  */
 function Button({ text, variant, onClick }) {
   const [isPressed, setIsPressed] = useState(false);
-  
+
   const handleClick = () => {
     setIsPressed(true);
     onClick();
     setTimeout(() => setIsPressed(false), 200);
   };
-  
+
   return (
-    <button 
+    <button
       className={`btn btn-${variant} ${isPressed ? 'btn-pressed' : ''}`}
       onClick={handleClick}
     >
@@ -122,10 +124,11 @@ export default Button;
 - Document side effects and any assumptions
 
 Example:
+
 ```javascript
 /**
  * Fetches user data from the API.
- * 
+ *
  * @param {string} userId - The ID of the user to fetch
  * @param {Object} options - Additional options for the request
  * @param {boolean} options.includeProfile - Whether to include profile data

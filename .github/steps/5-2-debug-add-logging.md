@@ -4,7 +4,7 @@ In this step, you'll use GitHub Copilot's Agent mode to add logging to some pree
 
 1. Open the **Copilot** chat panel, switch to **Agent** mode and **Claude 3.7 Sonnet** model using the dropdown menus.
 
-2. :paperclip: Attach the following files to the GitHub Copilot Chat context window to include for code refactoring :paperclip: 
+2. :paperclip: Attach the following files to the GitHub Copilot Chat context window to include for code refactoring :paperclip:
    1. `packages/frontend/src/components/ItemDetails.js`
    2. `packages/frontend/src/utils/ItemService.js`
    3. `packages/backend/src/controllers/ItemDetailsController.js`
@@ -12,7 +12,6 @@ In this step, you'll use GitHub Copilot's Agent mode to add logging to some pree
    5. `packages/backend/src/app.js`
 
 3. :pencil2: Enter a prompt to get GitHub Copilot to create logging statements to help with debugging the existing errors. Observe and interact with GitHub Copilot as prompts appear to perform actions or request more information. :pencil2:
-   
 4. :construction: Run the application with `npm run start` in the root directory to observe current state of the application. :construction:
    1. If the app is broken, this is intended as we will soon be having GitHub Copilot help fix compilation and runtime errors. As we only asked GitHub Copilot to add logging it should not have resolved most or any of the issues.
 5. :construction: Run unit tests `npm run test` in the root directory to run frontend and backend unit tests :construction:
@@ -22,10 +21,12 @@ In this step, you'll use GitHub Copilot's Agent mode to add logging to some pree
 ### Success Criteria
 
 To complete this exercise successfully, ensure that:
-   - Code changes are commited to the `feature/code-refactoring` branch.
-   - More console logging is added for the specified files.
+
+- Code changes are commited to the `feature/code-refactoring` branch.
+- More console logging is added for the specified files.
 
 If you encounter any issues, you can:
+
 - Double check that the pushed branch is called `feature/code-refactoring`
 - Ask Copilot to fix specific problems
 

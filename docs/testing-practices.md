@@ -89,7 +89,7 @@ describe('UserService', () => {
     it('should return user when found', () => {
       // Test implementation
     });
-    
+
     it('should return null when user not found', () => {
       // Test implementation
     });
@@ -108,13 +108,13 @@ it('should calculate total price correctly with discount', () => {
   // Arrange: Set up test data and conditions
   const items = [
     { name: 'Item 1', price: 10 },
-    { name: 'Item 2', price: 20 }
+    { name: 'Item 2', price: 20 },
   ];
   const discount = 0.1;
-  
+
   // Act: Perform the action being tested
   const result = calculateTotal(items, discount);
-  
+
   // Assert: Verify the result is as expected
   expect(result).toBe(27); // (10 + 20) * (1 - 0.1) = 27
 });
@@ -133,20 +133,20 @@ describe('UserForm', () => {
     // Arrange
     const mockSubmit = jest.fn();
     render(<UserForm onSubmit={mockSubmit} />);
-    
+
     // Act
     fireEvent.change(screen.getByLabelText(/name/i), {
-      target: { value: 'John Doe' }
+      target: { value: 'John Doe' },
     });
     fireEvent.change(screen.getByLabelText(/email/i), {
-      target: { value: 'john@example.com' }
+      target: { value: 'john@example.com' },
     });
     fireEvent.click(screen.getByRole('button', { name: /submit/i }));
-    
+
     // Assert
     expect(mockSubmit).toHaveBeenCalledWith({
       name: 'John Doe',
-      email: 'john@example.com'
+      email: 'john@example.com',
     });
   });
 });
@@ -204,10 +204,10 @@ it('should load user data asynchronously', async () => {
   // Arrange
   const userId = '1';
   fetchUser.mockResolvedValue({ id: userId, name: 'John' });
-  
+
   // Act
   const result = await loadUserData(userId);
-  
+
   // Assert
   expect(result.name).toBe('John');
 });

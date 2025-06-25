@@ -9,7 +9,7 @@ Here's a recap of your accomplishments:
 - Set up your GitHub Codespace development environment
 - Used GitHub Copilot Agent Mode with Claude 3.7 Sonnet to modify application content
 - Implemented delete functionality across both frontend and backend components
-- Implemented 
+- Implemented
 - Added, updated & troubleshooted frontend and backend unit tests
 - Implemented integration tests
 - Implemented e2e tests using Playwright

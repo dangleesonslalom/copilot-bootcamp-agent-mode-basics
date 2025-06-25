@@ -1,4 +1,4 @@
-### :keyboard: Activity: Bulk Add Unit Tests 
+### :keyboard: Activity: Bulk Add Unit Tests
 
 In this exercise, you'll use GitHub Copilot's Agent mode to add unit tests in bulk.
 
@@ -27,8 +27,10 @@ Let's add more unit tests for our codebase.
 ### Success Criteria
 
 To complete this exercise successfully:
+
 - The codebase should have unit tests that runs successfully.
 
 If you encounter any issues, you can:
+
 - Ask Copilot to fix specific problems
 - Check the developer console for any errors

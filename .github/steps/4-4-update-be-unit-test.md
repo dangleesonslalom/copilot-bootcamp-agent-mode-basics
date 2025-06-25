@@ -30,9 +30,11 @@ Let's update the backend unit tests for the delete api created in the previous l
 ### Success Criteria
 
 To complete this exercise successfully:
+
 - The backend DELETE endpoint should have a new IF condition.
 - The backend unit tests for DELETE endpoint should be updated and run successfully.
 
 If you encounter any issues, you can:
+
 - Ask Copilot to fix specific problems
 - Check the developer console for any errors

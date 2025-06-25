@@ -12,7 +12,7 @@ Let's add the frontend unit tests for the delete functionality created in the pr
    - For example, you might say: _"Add frontend unit tests for the delete functionality"_.
    - The exact wording is up to you—just make sure your intent is clear!
 
-1. Copilot will analyze your codebase and add unit tests for the delete button functionality in packages/frontend/src/__tests__/app.test.js.
+1. Copilot will analyze your codebase and add unit tests for the delete button functionality in packages/frontend/src/**tests**/app.test.js.
 
 1. When Copilot finishes making the changes, review what was modified:
    - In the frontend (`packages/frontend/src/__tests__/App.test.js`), you should see unit tests added for delete button functionality
@@ -26,9 +26,11 @@ Let's add the frontend unit tests for the delete functionality created in the pr
 ### Success Criteria
 
 To complete this exercise successfully:
+
 - The codebase should have unit tests for delete button functionality in `packages/backend/__tests__/app.test.js` that runs successfully.
 - You may need to move and rename the test file generated to the location specified above for the validations to succeed.
 
 If you encounter any issues, you can:
+
 - Ask Copilot to fix specific problems
 - Check the developer console for any errors
