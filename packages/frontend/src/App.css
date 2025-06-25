@@ -69,6 +69,23 @@ li {
   text-align: left;
 }
 
+li.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f;
+}
+
 li:last-child {
   border-bottom: none;
 }

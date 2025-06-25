@@ -37,6 +37,23 @@ const server = setupServer(
         created_at: new Date().toISOString(),
       })
     );
+  }),
+  
+  // DELETE /api/items/:id handler
+  rest.delete('/api/items/:id', (req, res, ctx) => {
+    const { id } = req.params;
+    
+    if (id === '999') {
+      return res(
+        ctx.status(404),
+        ctx.json({ error: 'Item not found' })
+      );
+    }
+    
+    return res(
+      ctx.status(200),
+      ctx.json({ message: 'Item deleted successfully' })
+    );
   })
 );
 
@@ -131,6 +148,88 @@ describe('App Component', () => {
     // Wait for empty state message
     await waitFor(() => {
       expect(screen.getByText('No items found. Add some!')).toBeInTheDocument();
+    });
+  });
+
+  test('deletes an item', async () => {
+    const user = userEvent.setup();
+    
+    await act(async () => {
+      render(<App />);
+    });
+    
+    // Wait for items to load
+    await waitFor(() => {
+      expect(screen.queryByText('Loading data...')).not.toBeInTheDocument();
+    });
+    
+    // Delete the first item
+    const deleteButton = screen.getAllByText('Delete')[0];
+    await act(async () => {
+      await user.click(deleteButton);
+    });
+    
+    // Check that the item is removed
+    await waitFor(() => {
+      expect(screen.queryByText('Test Item 1')).not.toBeInTheDocument();
+    });
+  });
+
+  test('handles delete API error', async () => {
+    const user = userEvent.setup();
+    
+    // Override the default handler to simulate a delete error
+    server.use(
+      rest.delete('/api/items/:id', (req, res, ctx) => {
+        return res(ctx.status(500));
+      })
+    );
+    
+    await act(async () => {
+      render(<App />);
+    });
+    
+    // Wait for items to load
+    await waitFor(() => {
+      expect(screen.queryByText('Loading data...')).not.toBeInTheDocument();
+    });
+    
+    // Try to delete an item
+    const deleteButton = screen.getAllByText('Delete')[0];
+    await act(async () => {
+      await user.click(deleteButton);
+    });
+    
+    // Wait for error message
+    await waitFor(() => {
+      expect(screen.getByText(/Failed to delete item/)).toBeInTheDocument();
+    });
+  });
+
+  test('deletes an item when delete button is clicked', async () => {
+    const user = userEvent.setup();
+    
+    await act(async () => {
+      render(<App />);
+    });
+    
+    // Wait for items to load
+    await waitFor(() => {
+      expect(screen.queryByText('Loading data...')).not.toBeInTheDocument();
+      expect(screen.getByText('Test Item 1')).toBeInTheDocument();
+    });
+    
+    // Find and click delete button for Test Item 1
+    const deleteButtons = screen.getAllByText('Delete');
+    await act(async () => {
+      await user.click(deleteButtons[0]); // Delete the first item
+    });
+    
+    // Check that the item no longer appears in the list
+    await waitFor(() => {
+      expect(screen.queryByText('Test Item 1')).not.toBeInTheDocument();
+      // The second item should still be there
+      expect(screen.getByText('Test Item 2')).toBeInTheDocument();
     });
   });
 });
