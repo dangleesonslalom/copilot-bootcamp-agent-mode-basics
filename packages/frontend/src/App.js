@@ -1,5 +1,37 @@
 import React, { useState, useEffect } from 'react';
+import {
+  Container,
+  Typography,
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  TextField,
+  Box,
+  Alert,
+  CircularProgress,
+  ThemeProvider,
+  createTheme,
+  CssBaseline,
+} from '@mui/material';
+import { Delete as DeleteIcon } from '@mui/icons-material';
 import './App.css';
+
+// Create theme
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#61dafb',
+    },
+    secondary: {
+      main: '#282c34',
+    },
+  },
+});
 
 function App() {
   const [data, setData] = useState([]);
@@ -78,67 +110,109 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Hello World</h1>
-        <p>Connected to in-memory database</p>
-      </header>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Container maxWidth="md">
+        <Box sx={{ py: 4 }}>
+          <Box textAlign="center" sx={{ mb: 4 }}>
+            <Typography variant="h3" component="h1" gutterBottom>
+              Hello World
+            </Typography>
+            <Typography variant="body1" color="text.secondary">
+              Connected to in-memory database
+            </Typography>
+          </Box>
 
-      <main>
-        <section className="add-item-section">
-          <h2>Add New Item</h2>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              value={newItem}
-              onChange={(e) => setNewItem(e.target.value)}
-              placeholder="Enter item name"
-            />
-            <button type="submit">Add Item</button>
-          </form>
-        </section>
+          <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
+            <Typography variant="h5" gutterBottom>
+              Add New Item
+            </Typography>
+            <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
+              <TextField
+                fullWidth
+                label="Item Name"
+                value={newItem}
+                onChange={(e) => setNewItem(e.target.value)}
+                placeholder="Enter item name"
+                margin="normal"
+                required
+              />
+              <Button 
+                type="submit" 
+                variant="contained" 
+                sx={{ mt: 2 }}
+                disabled={!newItem.trim()}
+              >
+                Add Item
+              </Button>
+            </Box>
+          </Paper>
 
-        <section className="items-section">
-          <h2>Items from Database</h2>
-          {loading && <p>Loading data...</p>}
-          {error && <p className="error">{error}</p>}
-          {!loading && !error && (
-            <>
-              {data.length > 0 ? (
-                <table className="items-table">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Name</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {data.map((item) => (
-                      <tr key={item.id}>
-                        <td>{item.id}</td>
-                        <td>{item.name}</td>
-                        <td>
-                          <button
-                            onClick={() => handleDelete(item.id)}
-                            className="delete-btn"
-                            aria-label={`Delete ${item.name}`}
-                          >
-                            Delete
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              ) : (
-                <p>No items found. Add some!</p>
-              )}
-            </>
-          )}
-        </section>
-      </main>
-    </div>
+          <Paper elevation={2} sx={{ p: 3 }}>
+            <Typography variant="h5" gutterBottom>
+              Items from Database
+            </Typography>
+            
+            {error && (
+              <Alert severity="error" sx={{ mb: 2 }}>
+                {error}
+              </Alert>
+            )}
+            
+            {loading ? (
+              <Box display="flex" justifyContent="center" p={3}>
+                <CircularProgress />
+              </Box>
+            ) : (
+              <>
+                {data.length > 0 ? (
+                  <TableContainer component={Paper} variant="outlined">
+                    <Table sx={{ minWidth: 650 }}>
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>ID</TableCell>
+                          <TableCell>Name</TableCell>
+                          <TableCell align="right">Actions</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {data.map((item) => (
+                          <TableRow key={item.id} hover>
+                            <TableCell>{item.id}</TableCell>
+                            <TableCell>{item.name}</TableCell>
+                            <TableCell align="right">
+                              <Button
+                                size="small"
+                                variant="outlined"
+                                color="error"
+                                onClick={() => handleDelete(item.id)}
+                                aria-label={`Delete ${item.name}`}
+                                startIcon={<DeleteIcon />}
+                              >
+                                Delete
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                ) : (
+                  <Box textAlign="center" py={4}>
+                    <Typography variant="h6" color="text.secondary">
+                      No items found
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                      Add some items to get started!
+                    </Typography>
+                  </Box>
+                )}
+              </>
+            )}
+          </Paper>
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 }
 
