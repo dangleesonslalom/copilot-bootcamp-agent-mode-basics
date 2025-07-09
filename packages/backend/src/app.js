@@ -67,12 +67,17 @@ app.delete('/api/items/:id', (req, res) => {
   try {
     const { id } = req.params;
 
-    if (!id || isNaN(parseInt(id))) {
+    // Validate that ID is a positive integer
+    const trimmedId = id.trim();
+    const parsedId = parseInt(trimmedId, 10);
+    
+    // Check for empty string, non-numeric, negative, zero, or decimal values
+    if (!trimmedId || isNaN(parsedId) || parsedId <= 0 || parsedId.toString() !== trimmedId) {
       return res.status(400).json({ error: 'Valid item ID is required' });
     }
 
     const deleteStmt = db.prepare('DELETE FROM items WHERE id = ?');
-    const result = deleteStmt.run(id);
+    const result = deleteStmt.run(parsedId);
 
     if (result.changes === 0) {
       return res.status(404).json({ error: 'Item not found' });
@@ -83,6 +88,11 @@ app.delete('/api/items/:id', (req, res) => {
     console.error('Error deleting item:', error);
     res.status(500).json({ error: 'Failed to delete item' });
   }
+});
+
+// Handle DELETE requests to /api/items without an ID
+app.delete('/api/items', (req, res) => {
+  res.status(400).json({ error: 'Valid item ID is required' });
 });
 
 module.exports = { app, db, insertStmt };
